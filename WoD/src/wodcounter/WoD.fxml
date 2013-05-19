@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="82.0" prefWidth="351.0" xmlns:fx="http://javafx.com/fxml" fx:controller="wodcounter.WoDController">
+  <children>
+    <VBox minHeight="71.0" prefHeight="80.0" prefWidth="347.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+      <children>
+        <HBox prefHeight="53.5" prefWidth="347.0">
+          <children>
+            <StackPane prefHeight="150.0" prefWidth="200.0" HBox.margin="$x1">
+              <children>
+                <Rectangle fx:id="LeftCountBack" arcHeight="30.0" arcWidth="30.0" fill="#fff1cc" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="173.0">
+                  <StackPane.margin>
+                    <Insets fx:id="x1" />
+                  </StackPane.margin>
+                </Rectangle>
+                <Text fx:id="LeftCountText" strokeType="OUTSIDE" strokeWidth="0.0" text="--:--:--">
+                  <font>
+                    <Font size="36.0" fx:id="x3" />
+                  </font>
+                </Text>
+              </children>
+            </StackPane>
+            <StackPane prefHeight="150.0" prefWidth="200.0">
+              <children>
+                <Rectangle fx:id="RightCountBack" arcHeight="30.0" arcWidth="30.0" fill="#ccf9ff" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="173.0" />
+                <Text fx:id="RightCountText" font="$x3" strokeType="OUTSIDE" strokeWidth="0.0" text="--:--:--" />
+              </children>
+            </StackPane>
+          </children>
+        </HBox>
+        <HBox prefHeight="25.0" prefWidth="347.0">
+          <children>
+            <ComboBox fx:id="ComportComboBox" prefWidth="100.0">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="アイテム1" />
+                  <String fx:value="アイテム2" />
+                  <String fx:value="アイテム3" />
+                </FXCollections>
+              </items>
+              <HBox.margin>
+                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" fx:id="x2" />
+              </HBox.margin>
+            </ComboBox>
+            <Button fx:id="ConnButton" mnemonicParsing="false" onAction="#handleConnButton" text="Conn" HBox.margin="$x2" />
+            <Button fx:id="ClearButton" mnemonicParsing="false" onAction="#handleClearButton" text="Clear">
+              <HBox.margin>
+                <Insets bottom="2.0" left="15.0" right="2.0" top="2.0" />
+              </HBox.margin>
+            </Button>
+          </children>
+        </HBox>
+      </children>
+    </VBox>
+  </children>
+</AnchorPane>
