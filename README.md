@@ -43,7 +43,7 @@ Clearボタンを押すとカウンタが停止し、カウンタ値がゼロにクリアされます。
 * 息抜きにwebのニュースを見始めたら黒のボタンを押す
 * 仕事を再開したらオレンジのボタンを押す
 * タバコを吸いに行くときにクロのボタンを押す
-* などど
+* などなど
 
 これにより、仕事をした時間、そうでない時間が明確にわかります。
 
@@ -64,12 +64,13 @@ macでのセットアップ
 javaからシリアルポートを使えるようにします。手順は色々あると思いますが、
 arduino IDEをすでにインストールしていることを前提にしています。
 
-arduino.appの中に入り、java/**/RXTXcomm.jarを/Library/Java/**/Extensionsにコピーします。
+arduino.appの中に入り、Contents/Resources/java/RXTXcomm.jarを/Library/Java/Extensionsにコピーします。
+librxtxSerial.jnilibも必要ですが、arduino IDEにあるものは64bit対応ではないため、ここでは使用しません。
 
-以下のURLにlibrxtxSerial.jnilibがダウンロードします。
+64bit対応のlibrxtxSerial.jnilibは以下のURLからダウンロードします。
 http://code.google.com/p/arduino/issues/detail?id=172
 
-これを/Library/Java/**/Extensionsにコピーします。
+これを/Library/Java/Extensionsにコピーします。
 
 RxTxSerialが使用する排他制御用のディレクトリを作るため、ターミナルで以下のコマンドを実行します。
 
