@@ -52,17 +52,17 @@ public class WoDController implements Initializable {
 	@FXML
 	private ComboBox ComportComboBox;
 
-	// ƒ^ƒCƒ}
+	// ã‚¿ã‚¤ãƒ
 	private Timer timer;
 	private Task task;
 	
-	// ŠÔŒv‘ª
+	// æ™‚é–“è¨ˆæ¸¬
 	private int workTime = 0;
 	private int notWorkTime = 0;
 	private int switchStatus = -1;
 	private boolean forceClear = false;
 
-	// ƒVƒŠƒAƒ‹ƒ|[ƒg
+	// ã‚·ãƒªã‚¢ãƒ«ãƒãƒ¼ãƒˆ
 	private SerialPort serialPort = null;
 	private InputStream inputStream;
 	private OutputStream outputStream;
@@ -70,12 +70,12 @@ public class WoDController implements Initializable {
 	private boolean serialReady = false;
 
 	////////////////////////////////////////////////////////
-	/// ‰Šú‰»
+	/// åˆæœŸåŒ–
 	@Override
 	public void initialize(URL url, ResourceBundle rb){
 		System.out.println("initialized");
 		
-		// Combobox‚ğƒNƒŠƒA‚µAƒVƒŠƒAƒ‹ƒ|[ƒg‚ğƒŠƒXƒgƒAƒbƒv‚·‚é
+		// Comboboxã‚’ã‚¯ãƒªã‚¢ã—ã€ã‚·ãƒªã‚¢ãƒ«ãƒãƒ¼ãƒˆã‚’ãƒªã‚¹ãƒˆã‚¢ãƒƒãƒ—ã™ã‚‹
 		ComportComboBox.getItems().clear();
 		Enumeration ports = CommPortIdentifier.getPortIdentifiers();
 		while (ports.hasMoreElements()){
@@ -85,7 +85,7 @@ public class WoDController implements Initializable {
 		}
 		ComportComboBox.getSelectionModel().select(0);
 		
-		// ƒ^ƒCƒ}ƒ^ƒXƒN
+		// ã‚¿ã‚¤ãƒã‚¿ã‚¹ã‚¯
 		timer = new Timer(true);
 		startTimer();
 		
@@ -111,7 +111,7 @@ public class WoDController implements Initializable {
 		timeLine.setCycleCount(Timeline.INDEFINITE);
 		timeLine.play();
 		
-		// ƒeƒLƒXƒg‚ÌƒGƒtƒFƒNƒg
+		// ãƒ†ã‚­ã‚¹ãƒˆã®ã‚¨ãƒ•ã‚§ã‚¯ãƒˆ
 		LeftDropShadow = new DropShadow();
 		LeftDropShadow.setOffsetX(1.0);
 		LeftDropShadow.setOffsetY(1.0);
@@ -127,12 +127,12 @@ public class WoDController implements Initializable {
 	}
 	
 	////////////////////////////////////////////////////////
-	/// Connƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½
+	/// Connãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸ
 	@FXML
 	public void handleConnButton(ActionEvent event){
 		String selport = (String)ComportComboBox.getValue();
 		try {
-		// ‘I‘ğ‚³‚ê‚½ƒ|[ƒg‚ÌportID‚ğ“¾‚é
+		// é¸æŠã•ã‚ŒãŸãƒãƒ¼ãƒˆã®portIDã‚’å¾—ã‚‹
 			CommPortIdentifier curport = CommPortIdentifier.getPortIdentifier(selport);
 			serialPort = (SerialPort)curport.open(this.getClass().getName(), TIME_OUT);
 			serialPort.setSerialPortParams(9600,
@@ -145,7 +145,7 @@ public class WoDController implements Initializable {
 			System.out.println("serial opened");
 			Thread.sleep(2000);
 			serialReady = true;
-			// Connƒ{ƒ^ƒ“‚ğ‰Ÿ‚¹‚È‚¢‚æ‚¤‚É‚·‚é
+			// Connãƒœã‚¿ãƒ³ã‚’æŠ¼ã›ãªã„ã‚ˆã†ã«ã™ã‚‹
 			ConnButton.setDisable(true);
 		} catch(Exception e){
 			System.err.println(e.toString());
@@ -153,25 +153,25 @@ public class WoDController implements Initializable {
 	}
 
 	////////////////////////////////////////////////////////
-	/// Clearƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½
+	/// Clearãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸ
 	@FXML
 	public void handleClearButton(ActionEvent event){
 		//System.out.println("Clear Button pushed");
-		// Arduino‚Éó‘Ô‚ÌƒŠƒZƒbƒg‚ğ“`‚¦‚é
+		// Arduinoã«çŠ¶æ…‹ã®ãƒªã‚»ãƒƒãƒˆã‚’ä¼ãˆã‚‹
 		try {
 			outputStream.write("RSET".getBytes("ISO-8859-1"));
-			// ƒŠƒZƒbƒgî•ñ‚ª‚·‚®‚É”½‰f‚³‚ê‚È‚¢‚Ì‚Å
+			// ãƒªã‚»ãƒƒãƒˆæƒ…å ±ãŒã™ãã«åæ˜ ã•ã‚Œãªã„ã®ã§
 			forceClear = true;
 			switchStatus = 0;
 		}catch(Exception e){
 		}
-		// ƒJƒEƒ“ƒ^‚ğƒŠƒZƒbƒg‚·‚é
+		// ã‚«ã‚¦ãƒ³ã‚¿ã‚’ãƒªã‚»ãƒƒãƒˆã™ã‚‹
 		workTime = 0;
 		notWorkTime = 0;
 	}
 
 	////////////////////////////////////////////////////////
-	/// ƒ^ƒCƒ}‚ÌŠJn
+	/// ã‚¿ã‚¤ãƒã®é–‹å§‹
 	public void startTimer(){
 		if (task == null){
 			task = new Task();
@@ -180,14 +180,14 @@ public class WoDController implements Initializable {
 	}
 	
 	////////////////////////////////////////////////////////
-	/// ƒ^ƒCƒ}‚Ì’â~
+	/// ã‚¿ã‚¤ãƒã®åœæ­¢
 	public void stopTimer(){
 		task.cancel();
 		task = null;
 	}
 	
 	////////////////////////////////////////////////////////
-	/// Œo‰ßŠÔ‚ğ•¶š—ñ‚É
+	/// çµŒéæ™‚é–“ã‚’æ–‡å­—åˆ—ã«
 	private String formatTime(int t){
 		int h = t / 3600;
 		int m = (t - h*3600) / 60;
@@ -196,7 +196,7 @@ public class WoDController implements Initializable {
 	}
 
 	////////////////////////////////////////////////////////
-	/// ƒEƒBƒ“ƒhƒEƒNƒ[ƒY‚Ìˆ—
+	/// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚¯ãƒ­ãƒ¼ã‚ºã®å‡¦ç†
 	public void closing(){
 		if (serialPort != null){
 			serialPort.close();
@@ -206,7 +206,7 @@ public class WoDController implements Initializable {
 	}
 	
 	////////////////////////////////////////////////////////
-	/// ƒ^ƒCƒ}‚Å‹N“®‚³‚ê‚éƒ^ƒXƒN
+	/// ã‚¿ã‚¤ãƒã§èµ·å‹•ã•ã‚Œã‚‹ã‚¿ã‚¹ã‚¯
 	class Task extends TimerTask {
 		@Override
 		public void run() {
