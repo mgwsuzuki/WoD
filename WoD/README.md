@@ -7,3 +7,8 @@ WoD Time Counter
 jdk1.7.0_21で動作確認しています。
 
 eclipseのバージョンは4.2です。
+
+pom.xmlを追加したので、
+`mvn clean package exec:java`
+で直接ビルド＆実行可能なはずです。
+(maven3がインストールされていない場合は各自インストールして下さい)
