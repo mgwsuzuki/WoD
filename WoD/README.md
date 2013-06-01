@@ -1,14 +1,15 @@
 WoD Time Counter
 ================
 
-2�̎��ԃJ�E���^��Arudino�ɐڑ����ꂽ�v�b�V���X�C�b�`��on/off�ł���A�v���ł��B
+2つの時間カウンタをArudinoに接続されたプッシュスイッチでon/offできるアプリです。
 
-�A�v����java�ŏ�����Ă���AJavaFX���C�u�������g���Ă��܂��B
-jdk1.7.0_21�œ���m�F���Ă��܂��B
+アプリはjavaで書かれており、JavaFXライブラリを使っています。
+jdk1.7.0_21で動作確認しています。
 
-eclipse�̃o�[�W������4.2�ł��B
+eclipseのバージョンは4.2です。
 
-pom.xml��ǉ������̂ŁA
+pom.xmlを追加したので、
 `mvn clean package exec:java`
-�Œ��ڃr���h�����s�\�Ȃ͂��ł��B
-(maven3���C���X�g�[������Ă��Ȃ��ꍇ�͊e���C���X�g�[�����ĉ�����)
+で直接ビルド＆実行可能なはずです。
+(maven3がインストールされていない場合は各自インストールして下さい)
+(追記: eclipse上でm2eの動作が確認できなかったのでいったんeclipseのみで動作できるように戻しました。力不足で申し訳ないです)

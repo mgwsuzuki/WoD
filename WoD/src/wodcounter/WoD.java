@@ -19,7 +19,8 @@ public class WoD extends Application {
         // GUIをFXMLから読み込む場合(普通に書いた場合)
         //Parent root = FXMLLoader.load(getClass().getResource("WoD.fxml"));
         // GUIをFXMLから読みつつコントローラを取得する場合
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/WoD.fxml"));
+		//FXMLLoader loader = new FXMLLoader(getClass().getResource("/WoD.fxml"));	// maven用
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("WoD.fxml"));
         Parent root = (Parent)loader.load();
 
         controller = (WoDController)loader.getController();

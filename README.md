@@ -1,81 +1,96 @@
 WoD Time Counter
 ================
 
-2�̎��ԃJ�E���^��Arudino�ɐڑ����ꂽ�v�b�V���X�C�b�`��on/off�ł���A�v���ł��B
+2つの時間カウンタをArudinoに接続されたプッシュスイッチでon/offできるアプリです。
 
-2013/5/3�ɊJ�Â������mde�T�o�C���ō�����V�[���h��p���邱�Ƃ��l���č��܂������A
-�u���b�h�{�[�h��2�̃X�C�b�`��t���Ďg�����Ƃ��ł��܂��B
+2013/5/3に開催したモノdeサバイ部で作ったシールドを用いることを考えて作りましたが、
+ブレッドボードに2つのスイッチを付けて使うこともできます。
 
-timercounter�f�B���N�g����Arduino�̃X�P�b�`�AWoD��Java�̃R�[�h�������Ă��܂��B
+timercounterディレクトリはArduinoのスケッチ、WoDはJavaのコードが入っています。
 
-�A�v����java�ŏ�����Ă���AJavaFX���C�u�������g���Ă��܂��B
-jdk1.7.0_21�œ���m�F���Ă��܂��B
+アプリはjavaで書かれており、JavaFXライブラリを使っています。
+jdk1.7.0_21で動作確認しています。
 
 
-�g����
+使い方
 ======
 
-Arduino IDE���g����timecounter.ico�̃X�P�b�`���R���p�C�����AArduino�ɏ������݂܂��B
+Arduino IDEを使ってtimecounter.icoのスケッチをコンパイルし、Arduinoに書き込みます。
 
-Arduino�ƃV���A���ʐM���邽�߂ɁARxTxSerial���C�u�����̐ݒ肪�K�v�ɂȂ�܂��B
+Arduinoとシリアル通信するために、RxTxSerialライブラリの設定が必要になります。
 
-�A�v���𗧂��グ��ƁA�g�p�\�ȃV���A���|�[�g���񋓂���܂��̂ŁAArduino��
-�ڑ�����Ă���|�[�g��I�����AConn�{�^���������܂��B
+アプリを立ち上げると、使用可能なシリアルポートが列挙されますので、Arduinoが
+接続されているポートを選択し、Connボタンを押します。
 
-�I�����W�̃{�^���������ƍ��̃J�E���^�������A���̃{�^���������ƉE�̃J�E���^�������܂��B
-���������Ɨ����̃J�E���^����~���܂��B
+オレンジのボタンを押すと左のカウンタが動き、黒のボタンを押すと右のカウンタが動きます。
+両方押すと両方のカウンタが停止します。
 
-Clear�{�^���������ƃJ�E���^����~���A�J�E���^�l���[���ɃN���A����܂��B
-
-
-�A�v�����������オ���Ă���΂��ł��{�^���������ăJ�E���^��؂�ւ��邱�Ƃ��ł��܂��B
+Clearボタンを押すとカウンタが停止し、カウンタ値がゼロにクリアされます。
 
 
-���p
+アプリさえ立ち上がっていればいつでもボタンを押してカウンタを切り替えることができます。
+
+
+応用
 ----
 
-�����̎��ԃJ�E���^�ł����A�d�����������ԁA�����łȂ����Ԃ��J�E���g�������
-���Ɍ��ȃA�v���ɂȂ�܂��B
+ただの時間カウンタですが、仕事をした時間、そうでない時間をカウントさせると
+非常に嫌なアプリになります。
 
-����Ȋ����ɂȂ�܂��B
+こんな感じになります。
 
-* ���Ɍ������Ďd�����J�n������I�����W�̃{�^��������
-* ��������web�̃j���[�X�����n�߂��獕�̃{�^��������
-* �d�����ĊJ������I�����W�̃{�^��������
-* �^�o�R���z���ɍs���Ƃ��ɃN���̃{�^��������
-* �ȂǂȂ�
+* 机に向かって仕事を開始したらオレンジのボタンを押す
+* 息抜きにwebのニュースを見始めたら黒のボタンを押す
+* 仕事を再開したらオレンジのボタンを押す
+* タバコを吸いに行くときにクロのボタンを押す
+* などなど
 
-����ɂ��A�d�����������ԁA�����łȂ����Ԃ����m�ɂ킩��܂��B
+これにより、仕事をした時間、そうでない時間が明確にわかります。
 
-���̃A�v������ʂ̏�ɖڂɂ��ꏊ�ɕ\�����Ă���Ƃ��������ȃv���b�V���[�������邱�Ƃ��ł��܂��B
+このアプリを画面の常に目につく場所に表示しているとすごく嫌なプレッシャーを感じることができます。
 
 
-windows7 x64�ł̃Z�b�g�A�b�v
+windows7 x64でのセットアップ
 ============================
 
-java����V���A���|�[�g���g����悤�ɂ��܂��B
+javaからシリアルポートを使えるようにします。
 
-...��ŒǋL���܂�...
+...後で追記します...
 
 
-mac�ł̃Z�b�g�A�b�v
+macでのセットアップ
 ===================
 
-java����V���A���|�[�g���g����悤�ɂ��܂��B�菇�͐F�X����Ǝv���܂����A
-arduino IDE�����łɃC���X�g�[�����Ă��邱�Ƃ�O��ɂ��Ă��܂��B
+javaからシリアルポートを使えるようにします。手順は色々あると思いますが、
+arduino IDEをすでにインストールしていることを前提にしています。
 
-arduino.app�̒��ɓ���AContents/Resources/java/RXTXcomm.jar��/Library/Java/Extensions�ɃR�s�[���܂��B
-librxtxSerial.jnilib���K�v�ł����Aarduino IDE�ɂ�����̂�64bit�Ή��ł͂Ȃ����߁A�����ł͎g�p���܂���B
+arduino.appの中に入り、Contents/Resources/java/RXTXcomm.jarを/Library/Java/Extensionsにコピーします。
+librxtxSerial.jnilibも必要ですが、arduino IDEにあるものは64bit対応ではないため、ここでは使用しません。
 
-64bit�Ή���librxtxSerial.jnilib�͈ȉ���URL����_�E�����[�h���܂��B
+64bit対応のlibrxtxSerial.jnilibは以下のURLからダウンロードします。
 http://code.google.com/p/arduino/issues/detail?id=172
 
-�����/Library/Java/Extensions�ɃR�s�[���܂��B
+これを/Library/Java/Extensionsにコピーします。
 
-RxTxSerial���g�p����r������p�̃f�B���N�g������邽�߁A�^�[�~�i���ňȉ��̃R�}���h�����s���܂��B
+RxTxSerialが使用する排他制御用のディレクトリを作るため、ターミナルで以下のコマンドを実行します。
 
  sudo mkdir /var/lock
+
  sudo chmod 777 /var/lock
+
+
+m2eのセットアップ
+=================
+
+eclipse(Juno)でmavenを使うための設定手順です。
+
+eclipse上で以下のサイトから
+http://download.eclipse.org/releases/juno
+
+以下のソフトウェアをインストールします。
+コラボレーション : m2e
+
+パッケージエクスプローラーのWoDを右クリック、メニューから実行→maven cleanを実行します。mavenのサイトからいろいろインストールされます。
 
 
 license
